@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+'''
+图中图
+'''
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+fig = plt.figure()
+x = [1, 2, 3, 4, 5, 6, 7]
+y = [1, 3, 4, 2, 5, 8, 6]
+
+left, bottom, width, height = 0.1, 0.1, 0.8, 0.8
+ax1 = fig.add_axes([left, bottom, width, height])   #添加图中图
+ax1.plot(x, y, 'r')
+ax1.set_xlabel('x')
+ax1.set_ylabel('y')
+ax1.set_title('title')
+
+
+left, bottom, width, height = 0.2, 0.6, 0.25, 0.25
+ax2 = fig.add_axes([left, bottom, width, height])
+ax2.plot(y, x, 'b')
+ax2.set_xlabel('x')
+ax2.set_ylabel('y')
+
+
+left, bottom, width, height = 0.6, 0.2, 0.25, 0.25
+ax3 = fig.add_axes([left, bottom, width, height])
+ax3.plot(y[::-1], x, 'g')
+ax3.set_xlabel('x')
+ax3.set_ylabel('y')
+
+plt.show()
